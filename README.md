@@ -34,6 +34,12 @@ A simple task management system built with Laravel.
 
 ---
 
+## Database Seeder
+
+The project includes a `UserSeeder` for quick testing (includes one account for admin and another one for employee). Just run php artisan db:seed
+
+---
+
 ## API Endpoint
 
 ### Get Logged-in User Tasks
