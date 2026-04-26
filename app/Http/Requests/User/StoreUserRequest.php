@@ -4,6 +4,7 @@ namespace App\Http\Requests\User;
 
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreUserRequest extends FormRequest
 {
@@ -12,7 +13,7 @@ class StoreUserRequest extends FormRequest
      */
     public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +24,10 @@ class StoreUserRequest extends FormRequest
     public function rules(): array
     {
         return [
-            //
+            'name' => 'required|string|max:100',
+            'email' => 'required|email|max:120|unique:users,email',
+            'password' => 'required|string|min:8|confirmed',
+            'role' => ['required', Rule::in(['admin', 'employee'])],
         ];
     }
 }
