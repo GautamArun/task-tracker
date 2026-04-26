@@ -34,3 +34,12 @@ A simple task management system built with Laravel.
 
 ---
 
+## API Endpoint
+
+### Get Logged-in User Tasks
+GET /api/tasks
+
+To generate API Token run: 
+1. php artisan tinker
+2. $user = App\Models\User::where('email', 'admin@test.com')->first();
+3. $user->createToken('api-token')->plainTextToken;
