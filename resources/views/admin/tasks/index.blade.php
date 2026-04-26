@@ -20,6 +20,7 @@
             @endif
 
             <div class="overflow-hidden rounded-xl bg-white shadow-sm ring-1 ring-gray-200">
+                <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
@@ -81,6 +82,7 @@
                         @endforelse
                     </tbody>
                 </table>
+                </div>
 
                 @if($tasks->hasPages())
                     <div class="border-t border-gray-100 px-6 py-4">
