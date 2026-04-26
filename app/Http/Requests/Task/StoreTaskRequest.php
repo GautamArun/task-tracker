@@ -26,7 +26,12 @@ class StoreTaskRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:200'],
             'description' => ['required', 'string', 'max:500'],
-            'assigned_user_id' => ['required', Rule::exists('users', 'id')],
+            'assigned_user_id' => [
+                'required',
+                Rule::exists('users', 'id')->where(function ($query) {
+                    $query->where('role', 'employee');
+                }),
+            ],
             'due_date' => ['required', 'date', 'after_or_equal:today'],
             'status' => ['required', Rule::in(['pending', 'in_progress', 'completed'])]
         ];

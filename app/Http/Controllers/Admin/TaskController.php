@@ -8,7 +8,6 @@ use App\Http\Requests\Task\UpdateTaskRequest;
 use App\Models\Task;
 use App\Models\User;
 use App\Services\TaskService;
-use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
@@ -41,7 +40,7 @@ class TaskController extends Controller
     {
         $this->taskService->createTask($request->validated());
 
-        return redirect()->route('admin.tasks.index')->with('Task has been created successfully.');
+        return redirect()->route('admin.tasks.index')->with('success', 'Task has been created successfully.');
     }
 
     /**
@@ -61,7 +60,7 @@ class TaskController extends Controller
     {
         $this->taskService->updateTask( $task, $request->validated());
 
-        return redirect()->route('admin.tasks.index')->with('Task has been updated successfully.');
+        return redirect()->route('admin.tasks.index')->with('success', 'Task has been updated successfully.');
     }
 
     /**
@@ -71,6 +70,6 @@ class TaskController extends Controller
     {
         $this->taskService->deleteTask($task);
 
-        return redirect()->route('admin.tasks.index')->with('Task has been deleted successfully.');
+        return redirect()->route('admin.tasks.index')->with('success', 'Task has been deleted successfully.');
     }
 }

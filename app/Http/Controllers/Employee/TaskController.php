@@ -5,8 +5,6 @@ namespace App\Http\Controllers\Employee;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Task\UpdateTaskStatusRequest;
 use App\Models\Task;
-use Illuminate\Auth\Events\Validated;
-use Illuminate\Http\Request;
 
 class TaskController extends Controller
 {
